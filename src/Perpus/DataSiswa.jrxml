@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1440b67f-505a-442b-9e76-21fc4884107d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="18"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="nim" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select *from peminjaman where NIM = $P{nim}]]>
+	</queryString>
+	<field name="NIM" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kode_Buku" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Buku" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Tanggal_Pinjam" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kode_Pinjam" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="102" splitType="Stretch">
+			<frame>
+				<reportElement uuid="c621d71a-ce07-4603-8f27-7bcd67121951" mode="Opaque" x="-5" y="4" width="807" height="66" backcolor="#000000"/>
+				<staticText>
+					<reportElement uuid="7f1272e6-7b55-443f-bae3-76a00efc4a83" style="Title" x="12" y="0" width="795" height="55"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement textAlignment="Center" verticalAlignment="Bottom">
+						<font size="40" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Data Peminjam Buku]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement uuid="f8099d23-1942-4edc-8b48-e81950dca701" mode="Opaque" x="-5" y="70" width="807" height="32" forecolor="#000000" backcolor="#CC0000"/>
+				<staticText>
+					<reportElement uuid="74b6f735-add1-48a5-935d-2b66c837c368" style="SubTitle" x="5" y="0" width="802" height="29" forecolor="#FFFFFF"/>
+					<textElement textAlignment="Center">
+						<font size="22" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Universitas Pelita Bangsa]]></text>
+				</staticText>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement uuid="62d9d0ef-cb66-4756-b3a6-8cad433ba609" style="Column header" x="597" y="12" width="155" height="20" forecolor="#FFFFFF"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="132" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="0791f208-f470-4317-bd69-3fd209fbca67" style="Column header" x="0" y="37" width="88" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[NIM]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9f0e222a-ec19-4772-b4b3-09ddcf57cc82" style="Column header" x="0" y="55" width="88" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Nama]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d816b979-c861-408e-be8b-465cadbf18da" style="Column header" x="327" y="103" width="190" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Buku]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8ae9ce9c-8883-4471-8561-23f2989e0190" style="Column header" x="517" y="103" width="113" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Tanggal_Pinjam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="fe4ceafe-58c9-4c6b-aaa7-a61f9f8382c2" style="Column header" x="0" y="103" width="198" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kode_Pinjam]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6d52195-9bb4-4248-b217-355e80ebf471" style="Column header" x="198" y="103" width="98" height="18" forecolor="#000000"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Kode_Buku]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="409bff55-30ee-42a4-a310-c2037f89c87b" style="Detail" positionType="Float" x="88" y="37" width="138" height="18"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NIM}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement uuid="a8bc67b7-3c2b-4497-9c40-fd8b86456cfb" style="Detail" positionType="Float" x="88" y="55" width="138" height="18"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Nama}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="9ce7b455-d097-4c37-822d-d66ea75e60fe" x="0" y="98" width="802" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<frame>
+				<reportElement uuid="b8fbe076-48bf-4c9b-8bd0-f5e45836701c" style="Row" mode="Opaque" x="0" y="0" width="797" height="18"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="6ec636b3-0607-42c8-8444-d47ff90b7016" style="Detail" positionType="Float" x="226" y="0" width="98" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Kode_Buku}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="c7789b20-da06-41b6-a2d2-b795881fceca" style="Detail" positionType="Float" x="327" y="0" width="190" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Buku}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="ebfd2990-8410-4552-9cde-c3be2c1cd6b5" style="Detail" positionType="Float" x="517" y="0" width="113" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Tanggal_Pinjam}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement uuid="10e41214-44b6-4fd4-8233-c3ce0c08e48b" style="Detail" positionType="Float" x="0" y="0" width="226" height="18"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{Kode_Pinjam}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="159" splitType="Stretch">
+			<line>
+				<reportElement uuid="19999b6f-f5bc-496d-bb61-249f6848d539" positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement uuid="d719c1c6-d05c-4520-831a-b92eef42740e" x="0" y="4" width="802" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement uuid="16692b6c-b789-42e0-9ace-1a280551eecc" mode="Opaque" x="0" y="0" width="819" height="25" forecolor="#D0B48E" backcolor="#000000"/>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
